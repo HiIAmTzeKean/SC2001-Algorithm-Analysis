@@ -43,6 +43,9 @@ public class merge_insertion_App {
 		}
 		System.out.println();
 		System.out.println("We see that the key comparison and CPU time between S=41 and S=51 is lowest");
+		System.out.println();
+		
+		// set the t
 		int LOOPS = 8;
 		for (int i=41; i<51; i+=1) {
 			double aveTime=0;
