@@ -1,3 +1,5 @@
+package Priority_queue_heap_sort;
+
 public class Node implements Comparable<Node> {
     private int value;
     private int vertex;
@@ -22,5 +24,7 @@ public class Node implements Comparable<Node> {
     public int compareTo(Node node2) {
         return (this.value - node2.value);
     }
-    
+    public void print() {
+        System.out.println("Value: " + this.value + "Vertex: " + this.vertex);
+    }
 }
