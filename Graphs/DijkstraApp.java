@@ -1,8 +1,8 @@
 package Graphs;
 
-public class dijkstraListApp {
+public class DijkstraApp {
     public static void main(String arg []) {
-        FullyConnectedMultiWeightComplex();
+        FullyConnectedSingleWeightSimple();
     }
 
     public static void DAGSimple() {
@@ -20,7 +20,7 @@ public class dijkstraListApp {
         g[3][4]=1;
         g[4][5]=1;
 
-        dijkstra d = new dijkstra();
+        Dijkstra d = new Dijkstra();
         d.pathFind(l,0,true);
         System.out.println();
         d.pathFind(g, 0, true);
@@ -36,7 +36,7 @@ public class dijkstraListApp {
             g[i][i+1]=1;
         }
 
-        dijkstra d = new dijkstra();
+        Dijkstra d = new Dijkstra();
         d.pathFind(l,0, false);
         System.out.println();
         d.pathFind(g, 0, false);
@@ -56,7 +56,7 @@ public class dijkstraListApp {
         g[0][4]=1;
         g[0][5]=1;
 
-        dijkstra d = new dijkstra();
+        Dijkstra d = new Dijkstra();
         d.pathFind(l,0,true);
         System.out.println();
         d.pathFind(g, 0, true);
@@ -74,7 +74,7 @@ public class dijkstraListApp {
         }
 
 
-        dijkstra d = new dijkstra();
+        Dijkstra d = new Dijkstra();
         d.pathFind(l,0,false);
         System.out.println();
         d.pathFind(g, 0, false);
@@ -92,7 +92,7 @@ public class dijkstraListApp {
             g[i+1][i]=1;
         }
 
-        dijkstra d = new dijkstra();
+        Dijkstra d = new Dijkstra();
         d.pathFind(l,0,true);
         System.out.println();
         d.pathFind(g, 0, true);
@@ -108,7 +108,7 @@ public class dijkstraListApp {
             for (int j=0; j<6; j++)
                 g[i][j]=10;
 
-        dijkstra d = new dijkstra();
+        Dijkstra d = new Dijkstra();
         d.pathFind(l,0,true);
         System.out.println();
         d.pathFind(g, 0, true);
@@ -125,7 +125,7 @@ public class dijkstraListApp {
             for (int j=0; j<size; j++)
                 g[i][j]=10;
 
-        dijkstra d = new dijkstra();
+        Dijkstra d = new Dijkstra();
         d.pathFind(l,0,false);
         System.out.println();
         d.pathFind(g, 0, false);
@@ -144,7 +144,7 @@ public class dijkstraListApp {
                 g[i][j]=count++;
         }
 
-        dijkstra d = new dijkstra();
+        Dijkstra d = new Dijkstra();
         d.pathFind(l,0,true);
         System.out.println();
         d.pathFind(g, 0, true);
@@ -164,7 +164,7 @@ public class dijkstraListApp {
                 g[i][j]=count++;
         }
 
-        dijkstra d = new dijkstra();
+        Dijkstra d = new Dijkstra();
         d.pathFind(l,0,false);
         System.out.println();
         d.pathFind(g, 0, false);

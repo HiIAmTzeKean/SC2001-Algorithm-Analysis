@@ -7,16 +7,14 @@ import Node.Node;
 import Priority_queue_heap.priorityQueue;
 import Priority_queue_array.priorityQueue;
 
-public class dijkstra {
+public class Dijkstra {
     private int[] S;
     private int[] pi;
     private int[] d;
-    private int findMinCount;
     private int vertexCount;
     private int edgeCount;
     private Priority_queue_heap.priorityQueue q;
     private Priority_queue_array.priorityQueue a;
-    private int[] array;
 
     public void initialiseList(int size) {
         q = new Priority_queue_heap.priorityQueue();
@@ -30,21 +28,6 @@ public class dijkstra {
         }
         vertexCount = 0;
         edgeCount = 0;
-    }
-    public void initialiseMatrix(int size) {
-        array = new int[size];
-        d = new int[size];
-        S = new int[size];
-        pi = new int[size];
-        for (int i = 0; i < size; i++) {
-            d[i] = Integer.MAX_VALUE;
-            S[i] = 0;
-            pi[i] = Integer.MAX_VALUE;
-            array[i] = Integer.MAX_VALUE;
-        }
-        vertexCount = 0;
-        edgeCount = 0;
-        findMinCount = 0;
     }
     public void pathFind(AdjacencyList g, int source, boolean isSimple) {
         initialiseList(g.size());
@@ -112,55 +95,6 @@ public class dijkstra {
                     d[v] = d[u.getVertex()] + g[u.getVertex()][v];
                     a.decreaseKey(d[u.getVertex()] + g[u.getVertex()][v], v);
                     pi[v] = u.getVertex();
-                }
-            }
-        }
-        print(false,isSimple);
-    }
-    public void pathFindSimpleArray(int[][] g, int source, boolean isSimple) {
-        // init all variales here
-        int size = g.length;
-        initialiseMatrix(size);
-
-        d[source] = 0;
-        pi[source] = 0;
-        array[source] = 0;
-        // while array still has some node to check
-        while (true) {
-            // search array for next min path to travel
-            // If there are no more path then min will be equal to inf
-            // Then we will exit program
-            // This process will take O(V)
-            int min = Integer.MAX_VALUE;
-            int u = 0;
-            for (int i = 0; i < size; i++) {
-                findMinCount++;
-                if (array[i] < min) {
-                    min = array[i];
-                    u = i;
-                }
-            }
-            // Remove the vertex from the array by resetting to inf
-            array[u] = Integer.MAX_VALUE;
-            // This means no more S to traverse
-            if (min == Integer.MAX_VALUE)
-                break;
-            // Perform the normal dijkstra here
-            // Mark the vertex as visited
-            S[u] = 1;
-            this.vertexCount++;
-            // Check current node with all adjacent vertex
-            // This loop will take O(V)
-            for (int v = 0; v < size; v++) {
-                // if some edge exist && Edge not seen && edge is gives shorter path
-                this.edgeCount++;
-                if (g[u][v] > 0 &&
-                        S[v] == 0 &&
-                        d[v] > d[u] + g[u][v]) {
-                    // update the path
-                    d[v] = d[u] + g[u][v];
-                    array[v] = d[u] + g[u][v];
-                    pi[v] = u;
                 }
             }
         }
