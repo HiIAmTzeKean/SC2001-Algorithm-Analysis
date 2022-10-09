@@ -1,16 +1,16 @@
-package Priority_queue_heap;
+package Priority_queue;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import Node.Node;
 
-public class priorityQueue {
+public class PriorityQueueHeap extends PriorityQueueClass {
     private List<Node> arr;
     private int[] countArray;
     private HashMap<Integer,Integer> map;
     private heap h;
     
-    public priorityQueue(){
+    public PriorityQueueHeap(){
         h = new heap();
         // Indexing of array starts from 0
         arr = new ArrayList<Node>();

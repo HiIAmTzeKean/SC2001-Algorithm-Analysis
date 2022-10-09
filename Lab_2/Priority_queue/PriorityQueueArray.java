@@ -1,18 +1,15 @@
-package Priority_queue_array;
+package Priority_queue;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
-
 import Node.Node;
 
-public class priorityQueue {
+public class PriorityQueueArray extends PriorityQueueClass {
     private Node[] array;
     private HashMap<Integer,Integer> map;
     int size;
     int[] countArray;
 
-    public priorityQueue(int initSize) {
+    public PriorityQueueArray(int initSize) {
         array = new Node[initSize];
         size = 0;
         map = new HashMap<Integer,Integer>();

@@ -2,7 +2,7 @@ package Graphs;
 
 public class DijkstraApp {
     public static void main(String arg []) {
-        FullyConnectedSingleWeightSimple();
+        FullyConnectedMultiWeightComplex();
     }
 
     public static void DAGSimple() {
@@ -65,12 +65,12 @@ public class DijkstraApp {
         int size = 100;
         AdjacencyList l = new AdjacencyList(size);
         for (int i=0; i<size-1; i++) {
-            l.addNode(i, i+1, 1);
+            l.addNode(0, i+1, 1);
         }
 
         int[][]g=new int[size][size];
         for (int i=0; i<size-1; i++) {
-            g[i][i+1]=1;
+            g[0][i+1]=1;
         }
 
 
@@ -133,16 +133,23 @@ public class DijkstraApp {
     public static void FullyConnectedMultiWeightSimple() {
         AdjacencyList l = new AdjacencyList(6);
         for (int i=0; i<6; i++) {
-            int count=1;
-            for (int j=5; j>=0; j--)
-                l.addNode(i, j, count++);
+            for (int j=0; j<6; j++)
+                if (j==i-1)
+                    l.addNode(i, j, 1);
+                else
+                    l.addNode(i, j, 100000);
         }
+        l.updateNode(0,6-1,1);
+
         int[][]g=new int[6][6];
         for (int i=0; i<6; i++) {
-            int count=1;
-            for (int j=5; j>=0; j--)
-                g[i][j]=count++;
+            for (int j=0; j<6; j++)
+                if (j==i-1)
+                    g[i][j]=1;
+                else
+                    g[i][j]=100000;
         }
+        g[0][6-1]=1;
 
         Dijkstra d = new Dijkstra();
         d.pathFind(l,0,true);
@@ -153,16 +160,23 @@ public class DijkstraApp {
         int size = 100;
         AdjacencyList l = new AdjacencyList(size);
         for (int i=0; i<size; i++) {
-            int count=1;
-            for (int j=100-1; j>=0; j--)
-                l.addNode(i, j, count++);
+            for (int j=0; j<size; j++)
+                if (j==i-1)
+                    l.addNode(i, j, 1);
+                else
+                    l.addNode(i, j, 100000);
         }
+        l.updateNode(0,size-1,1);
+
         int[][]g=new int[size][size];
         for (int i=0; i<size; i++) {
-            int count=1;
-            for (int j=size-1; j>=0; j--)
-                g[i][j]=count++;
+            for (int j=0; j<size; j++)
+                if (j==i-1)
+                    g[i][j]=1;
+                else
+                    g[i][j]=100000;
         }
+        g[0][6-1]=1;
 
         Dijkstra d = new Dijkstra();
         d.pathFind(l,0,false);

@@ -2,10 +2,7 @@ package Graphs;
 
 import java.util.Arrays;
 import java.util.LinkedList;
-
 import Node.Node;
-import Priority_queue_heap.priorityQueue;
-import Priority_queue_array.priorityQueue;
 
 public class Dijkstra {
     private int[] S;
@@ -13,11 +10,11 @@ public class Dijkstra {
     private int[] d;
     private int vertexCount;
     private int edgeCount;
-    private Priority_queue_heap.priorityQueue q;
-    private Priority_queue_array.priorityQueue a;
+    private Priority_queue.PriorityQueueHeap q;
+    private Priority_queue.PriorityQueueArray a;
 
     public void initialiseList(int size) {
-        q = new Priority_queue_heap.priorityQueue();
+        q = new Priority_queue.PriorityQueueHeap();
         d = new int[size];
         S = new int[size];
         pi = new int[size];
@@ -61,7 +58,7 @@ public class Dijkstra {
     public void pathFind(int[][] g, int source, boolean isSimple) {
         // init all variales here
         int size = g.length;
-        a = new Priority_queue_array.priorityQueue(size);
+        a = new Priority_queue.PriorityQueueArray(size);
         d = new int[size];
         S = new int[size];
         pi = new int[size];

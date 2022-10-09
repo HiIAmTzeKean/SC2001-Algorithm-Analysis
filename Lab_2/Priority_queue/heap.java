@@ -1,7 +1,8 @@
-package Priority_queue_heap;
+package Priority_queue;
 
 import java.util.HashMap;
 import java.util.List;
+
 import Node.Node;
 
 public class heap {
