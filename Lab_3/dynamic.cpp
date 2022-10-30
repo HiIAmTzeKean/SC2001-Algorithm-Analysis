@@ -4,8 +4,8 @@ using namespace std;
 int knapsack(int W, int wt[], int val[], int n){
 	vector <int> ans(W+1,0);
 	
-	for (int i=1; i<=n; i++){
-		for (int w=W; w>=0; w--){
+	for (int w=0; w<=W; w++){
+		for (int i=0; i<n; i++){
 			if (wt[i-1]<=w){
 				ans.at(w) = max(ans.at(w), ans.at(w-wt[i-1])+val[i-1]);
 			}		
