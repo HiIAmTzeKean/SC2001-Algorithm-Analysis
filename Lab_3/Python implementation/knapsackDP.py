@@ -1,4 +1,3 @@
-
 from numpy import sort
 
 def knapsackBottomUp(C,p,w,W):
@@ -19,7 +18,6 @@ def knapsackBottomUp(C,p,w,W):
                 takenReplacement = arr[i-w[index]][j] + p[index]
 
             arr[i][j] = max(notTaken,taken,takenReplacement)
-    printArray(arr)
     return arr[C][W]
 
 def knapsackBottomUpSimple(C,p,w,W):
@@ -58,6 +56,15 @@ def knapsackBottomUpSpaceOptimise(C,p,w,W):
 
             arr[i][j] = max(notTaken,taken,takenReplacement)
     return arr[C-wMin][W]
+
+def unboundedKnapsackTrueOptimisation(C,p,w,W):
+    arr = [0 for i in range(C + 1)]
+    for i in range(C + 1):
+        for j in range(W):
+            if (w[j] <= i):
+                arr[i] = max(arr[i], arr[i - w[j]] + p[j])
+    return arr[C]
+
 
 def printArray(arr):
     for i in arr:
