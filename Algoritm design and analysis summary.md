@@ -1,6 +1,10 @@
 ---
-tags: 🌱, SUMARRY
+tags:
+  - 🌱
+  - Algorithm
+  - ComputerScience
 date: 26--Aug--2022
+modified: 29--Oct--2023
 ---
 
 # Summary

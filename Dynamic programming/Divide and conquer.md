@@ -1,5 +1,7 @@
 ---
-tags: 🌱
+tags:
+  - 🌱
+  - ComputerScience 
 alias: D&C
 date: 01--Oct--2022
 ---

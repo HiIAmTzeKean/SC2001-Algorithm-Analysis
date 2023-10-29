@@ -1,5 +1,7 @@
 ---
-tags: 🌱, TODO
+tags:
+  - 🌱
+  - ComputerScience 
 date: 07--Aug--2022
 ---
 
